@@ -15,6 +15,6 @@ public class MainFrame extends JFrame {
 
 
         ImageIcon playingCards = new ImageIcon("PlayingCards/2_of_clubs.png");
-        JLabel.setIcon(playingCards);
+        //JLabel.setIcon(playingCards);
     }
 }
