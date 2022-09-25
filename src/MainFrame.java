@@ -3,12 +3,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.nio.file.Path;
 import java.util.Random;
 
 public class MainFrame extends JFrame {
     ImageIcon[] cards = new ImageIcon[52];
 
     public MainFrame() {
+
+        // calling File to path method
+        FileToPath();
+
         setTitle("Card Shuffle");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1400, 800);
@@ -51,6 +57,42 @@ public class MainFrame extends JFrame {
 
         return ar;
     }
+
+    // method to try and create a path from PlayingCards file to an array
+    public void FileToPath(){
+        // counter
+        int i = 0;
+        // PlayingCards file path
+        File file = new File("C:\\Users\\JrRos\\Desktop\\HERE\\PlayingCards");
+        Path path =file.toPath();
+
+        // array to store all Cards in
+        JLabel allCards[] = new JLabel[52];
+
+        // for loop to get all png location from file into array
+        for (File card : file.listFiles()){
+            JLabel label = new JLabel("card ");
+
+            // attempt at making all files to imageIcons
+            label.setIcon(new ImageIcon(card.toPath().toString()));
+
+            JTextArea text = new JTextArea();
+            text.setText("Add subject here...");
+
+            allCards[i] = label;
+
+            System.out.println(label);
+            i++;
+
+
+
+
+        }
+
+
+    }
+
+
 
     public static void main(String[] args) {
         MainFrame frame = new MainFrame();
