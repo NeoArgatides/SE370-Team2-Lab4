@@ -13,14 +13,18 @@ public class MainFrame extends JFrame {
     public MainFrame() {
 
         // calling File to path method
-        FileToPath();
+        //FileToPath();
 
         setTitle("Card Shuffle");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1400, 800);
 
-        cards[0] = new ImageIcon(new ImageIcon("PlayingCards/2_of_clubs.png").getImage().getScaledInstance(100, 145, Image.SCALE_DEFAULT));
-        cards[1] = new ImageIcon(new ImageIcon("PlayingCards/2_of_diamonds.png").getImage().getScaledInstance(100, 145, Image.SCALE_DEFAULT));
+        String fileName;
+        for(int i = 0; i < 52; i++) {
+            cards[i] = new ImageIcon(new ImageIcon("PlayingCards/" + String.valueOf(i+1) + ".png").getImage().getScaledInstance(100, 145, Image.SCALE_DEFAULT));
+        }
+        //cards[0] = new ImageIcon(new ImageIcon("PlayingCards/2_of_clubs.png").getImage().getScaledInstance(100, 145, Image.SCALE_DEFAULT));
+        //cards[1] = new ImageIcon(new ImageIcon("PlayingCards/2_of_diamonds.png").getImage().getScaledInstance(100, 145, Image.SCALE_DEFAULT));
 
         JPanel mainPanel = new JPanel();
         mainPanel.setBackground(new Color(26, 108, 14));
